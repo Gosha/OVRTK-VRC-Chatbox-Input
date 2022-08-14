@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VRChat Keyboard</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=0"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      input,
+      button {
+        font-size: 60px;
+      }
+
+      html {
+        height: 100vh;
+        font-family: "Noto Sans", sans-serif;
+      }
+
+      body {
+        display: grid;
+
+        justify-content: center;
+        align-content: center;
+
+        grid-template-areas: "input input input" ". clear send";
+        grid-template-columns: 1fr 1fr 1fr;
+
+        gap: 10px;
+      }
+
+      body input {
+        grid-area: input;
+        background-color: #07242b;
+        border: 5px solid #053c48;
+        border-radius: 15px;
+        color: #6ae3f9;
+        outline: none;
+        padding: 10px;
+      }
+
+      input:focus {
+        border-color: rgb(8, 108, 132);
+        background-color: rgb(7, 52, 63);
+      }
+
+      button {
+        background-color: #07242b;
+        border: 5px solid #053c48;
+        border-radius: 15px;
+        color: #6ae3f9;
+        padding: 10px;
+      }
+
+      button:hover {
+        background-color: rgb(7, 52, 63);
+        border-color: rgb(8, 108, 132);
+      }
+
+      #send-button {
+        grid-area: send;
+      }
+
+      #clear-button {
+        grid-area: clear;
+      }
+    </style>
+  </head>
+
+  <body>
+    <input id="input" type="text" placeholder="" />
+    <button id="undo-button">Undo</button>
+    <button id="clear-button">Clear</button>
+    <button id="send-button">Send</button>
+
+    <script src="ovrt-helper.js"></script>
+    <script src="input.js"></script>
+  </body>
+</html>
