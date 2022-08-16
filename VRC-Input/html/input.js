@@ -10,7 +10,7 @@ const clearButton = document.getElementById("clear-button")
 const undoButton = document.getElementById("undo-button")
 
 /** @type {'OVR' | 'COMPANION'} */
-const MODE = "COMPANION"
+const MODE = "OVR"
 
 let latestInput = ""
 async function clear() {
@@ -49,8 +49,7 @@ async function sendInput() {
   if (value.length == 0) return
 
   if (MODE == "OVR") {
-    // Doesn't work
-    API.sendOSCMessage("/chatbox/input", value, 3)
+    API.sendOSCMessageArray("/chatbox/input", [value, true])
   } else {
     await fetch("http://localhost:9090/input", {
       method: "post",
